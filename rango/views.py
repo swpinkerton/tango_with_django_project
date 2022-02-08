@@ -11,7 +11,11 @@ def index(request):
     return HttpResponse("Rango says hey there partner! <a href='/rango/about/'>About</a>")
 
 def about(request):
-    return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
+    # prints out whether the method is a GET or a POST
+    print(request.method)
+    # prints out the user name, if no one is logged in it prints `AnonymousUser`
+    print(request.user)
+    return render(request, 'rango/about.html', {})
 
 def index(request):
     # Query the database for a list of ALL categories currently stored.
